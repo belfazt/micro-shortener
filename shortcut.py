@@ -1,21 +1,18 @@
 from copy import deepcopy
 
 class Shortcut(object):
-  """docstring for Shortcut"""
-  def __init__(self, url):
+  """This class represents an Shortcut"""
+  def __init__(self, uid, url):
     super(Shortcut, self).__init__()
     self.url = url
+    self.id = uid
     self.usages = 0
-    
-  def get_usages(self):
-    return self.usages
 
-  def get_url(self):
+  def use_once(self):
     self.usages += 1
-    return self.url;
 
-  def to_JSON(self):
-    return {'url': self.url, 'usages': self.usages}
-  
+  def to_dict(self):
+    return {'id': self.id, 'url': self.url, 'usages': self.usages}
+
   def copy(self):
     return deepcopy(self)
