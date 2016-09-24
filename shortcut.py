@@ -13,7 +13,7 @@ class Shortcut(object):
     self.usages.append(strftime("%Y-%m-%d %H:%M:%S"))
 
   def to_dict(self):
-    return {'id': self.id, 'url': self.url, 'usages': self.usages, 'usage_count': self.usages.length}
+    return {'id': self.id, 'url': self.url, 'usages': self.usages, 'usage_count': len(self.usages)}
 
   def copy(self):
     return deepcopy(self)
