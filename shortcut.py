@@ -1,4 +1,5 @@
 from copy import deepcopy
+from time import strftime
 
 class Shortcut(object):
   """This class represents an Shortcut"""
@@ -6,13 +7,13 @@ class Shortcut(object):
     super(Shortcut, self).__init__()
     self.url = url
     self.id = uid
-    self.usages = 0
+    self.usages = []
 
   def use_once(self):
-    self.usages += 1
+    self.usages.append(strftime("%Y-%m-%d %H:%M:%S"))
 
   def to_dict(self):
-    return {'id': self.id, 'url': self.url, 'usages': self.usages}
+    return {'id': self.id, 'url': self.url, 'usages': self.usages, 'usage_count': self.usages.length}
 
   def copy(self):
     return deepcopy(self)
